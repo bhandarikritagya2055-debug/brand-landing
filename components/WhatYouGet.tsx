@@ -14,12 +14,11 @@ export default function WhatYouGet() {
   const listRef = useReveal("stagger");
 
   return (
-    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
+    <section className="py-20 md:py-24 px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
-        {/* Header row */}
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24 mb-16 md:mb-20"
+          className="reveal flex flex-col md:flex-row md:items-start gap-10 md:gap-24 mb-12"
         >
           <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
             <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
@@ -44,7 +43,6 @@ export default function WhatYouGet() {
           </div>
         </div>
 
-        {/* Items */}
         <div className="md:pl-[244px]">
           <ul
             ref={listRef as React.RefObject<HTMLUListElement>}
@@ -53,18 +51,15 @@ export default function WhatYouGet() {
             {items.map((item, i) => (
               <li
                 key={i}
-                className="border border-white/[0.07] p-8 flex gap-6 items-start hover:border-gold/30 transition-colors duration-500"
+                className="border border-white/[0.07] px-7 py-6 flex gap-5 items-start hover:border-gold/30 transition-colors duration-500"
               >
                 <span
-                  className="font-cormorant text-[1.75rem] font-light text-gold/35 shrink-0 leading-none mt-1"
+                  className="font-cormorant text-[1.5rem] font-light text-gold/35 shrink-0 leading-none mt-0.5"
                   aria-hidden
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p
-                  className="font-inter text-[#E8E8E8]/65 leading-[1.7]"
-                  style={{ fontSize: "1rem" }}
-                >
+                <p className="font-inter text-[#E8E8E8]/65 leading-[1.7] text-[0.9375rem]">
                   {item}
                 </p>
               </li>

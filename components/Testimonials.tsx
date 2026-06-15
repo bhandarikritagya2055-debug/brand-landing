@@ -30,12 +30,11 @@ export default function Testimonials() {
   const gridRef = useReveal("stagger");
 
   return (
-    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
+    <section className="py-20 md:py-24 px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
-        {/* Header row */}
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24 mb-16 md:mb-20"
+          className="reveal flex flex-col md:flex-row md:items-start gap-10 md:gap-24 mb-12"
         >
           <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
             <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
@@ -58,24 +57,20 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Grid */}
         <div className="md:pl-[244px]">
           <div
             ref={gridRef as React.RefObject<HTMLDivElement>}
-            className="stagger grid sm:grid-cols-2 gap-5"
+            className="stagger grid sm:grid-cols-2 gap-x-10 gap-y-10"
           >
             {testimonials.map((t) => (
               <figure
                 key={t.name}
-                className="border-t border-gold/40 pt-8 pb-10 px-0 flex flex-col justify-between gap-8"
+                className="border-t border-gold/35 pt-7 flex flex-col justify-between gap-6"
               >
-                <blockquote
-                  className="font-inter text-[#E8E8E8]/60 leading-[1.7]"
-                  style={{ fontSize: "1rem" }}
-                >
+                <blockquote className="font-inter text-[#E8E8E8]/60 leading-[1.7] text-[0.9375rem]">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <figcaption className="font-inter text-[0.8rem] tracking-[0.12em] uppercase text-gold">
+                <figcaption className="font-inter text-[0.75rem] tracking-[0.14em] uppercase text-gold">
                   {t.name}
                 </figcaption>
               </figure>

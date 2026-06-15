@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Kritagya Bhandari — Digital Marketing Consultant",
+  title: "Kritagya Bhandari — AI Marketer",
   description:
     "Get a free personalized business growth strategy. More leads, more sales, and steady revenue — built around your business.",
 };

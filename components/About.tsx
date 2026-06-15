@@ -6,13 +6,12 @@ export default function About() {
   const ref = useReveal();
 
   return (
-    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
+    <section className="py-20 md:py-24 px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
-          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24"
+          className="reveal flex flex-col md:flex-row md:items-start gap-10 md:gap-24"
         >
-          {/* Section label + number */}
           <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
             <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
               About
@@ -25,10 +24,9 @@ export default function About() {
             </span>
           </div>
 
-          {/* Content */}
           <div className="flex-1">
             <h2
-              className="font-cormorant font-light text-white mb-6 leading-[1.1] tracking-[-0.01em]"
+              className="font-cormorant font-light text-white mb-5 leading-[1.1] tracking-[-0.01em]"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
             >
               Hi, I&apos;m Kritagya Bhandari.
@@ -37,9 +35,10 @@ export default function About() {
               className="font-inter text-[#E8E8E8]/60 leading-[1.7] max-w-[60ch]"
               style={{ fontSize: "1.125rem" }}
             >
-              I help businesses get more leads, close more sales, and turn
-              online attention into real growth. No guesswork, no fluff — just
-              a clear plan that works.
+              I&apos;m an AI marketer. I use AI tools and systems to help
+              businesses get more leads and close more sales — faster and
+              cheaper than old-school marketing. No guesswork, no fluff, just a
+              clear plan that works.
             </p>
           </div>
         </div>

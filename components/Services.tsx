@@ -12,15 +12,14 @@ const services = [
 
 export default function Services() {
   const headRef = useReveal();
-  const listRef = useReveal("stagger");
+  const gridRef = useReveal("stagger");
 
   return (
-    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
+    <section className="py-20 md:py-24 px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
-        {/* Header row */}
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24 mb-16 md:mb-20"
+          className="reveal flex flex-col md:flex-row md:items-start gap-10 md:gap-24 mb-12"
         >
           <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
             <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
@@ -45,27 +44,23 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Service list */}
         <div className="md:pl-[244px]">
           <div
-            ref={listRef as React.RefObject<HTMLDivElement>}
-            className="stagger"
+            ref={gridRef as React.RefObject<HTMLDivElement>}
+            className="stagger grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             {services.map((s) => (
               <div
                 key={s.name}
-                className="service-item group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-7 border-b border-white/[0.07] cursor-default"
+                className="service-item group border border-white/[0.07] px-6 py-6 hover:border-gold/30 transition-colors duration-500 cursor-default"
               >
                 <h3
-                  className="font-cormorant font-light text-white group-hover:text-gold transition-colors duration-300"
-                  style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
+                  className="font-cormorant font-light text-white mb-2 group-hover:text-gold transition-colors duration-300 leading-snug"
+                  style={{ fontSize: "clamp(1.25rem, 2vw, 1.5rem)" }}
                 >
                   {s.name}
                 </h3>
-                <p
-                  className="font-inter text-white/35 sm:text-right"
-                  style={{ fontSize: "0.875rem" }}
-                >
+                <p className="font-inter text-white/35 text-[0.8125rem]">
                   {s.desc}
                 </p>
               </div>

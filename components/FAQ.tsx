@@ -24,7 +24,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-white/[0.07]">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-7 text-left focus:outline-none group"
+        className="w-full flex items-center justify-between py-6 text-left focus:outline-none group"
         aria-expanded={open}
       >
         <span
@@ -47,10 +47,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         className="overflow-hidden transition-[max-height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{ maxHeight: "0px" }}
       >
-        <p
-          className="font-inter text-[#E8E8E8]/50 leading-[1.7] pb-7"
-          style={{ fontSize: "0.9375rem" }}
-        >
+        <p className="font-inter text-[#E8E8E8]/50 leading-[1.7] text-[0.9375rem] pb-6">
           {a}
         </p>
       </div>
@@ -63,12 +60,11 @@ export default function FAQ() {
   const listRef = useReveal();
 
   return (
-    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
+    <section className="py-20 md:py-24 px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
-        {/* Header row */}
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24 mb-16 md:mb-20"
+          className="reveal flex flex-col md:flex-row md:items-start gap-10 md:gap-24 mb-12"
         >
           <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
             <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
@@ -91,7 +87,6 @@ export default function FAQ() {
           </div>
         </div>
 
-        {/* Accordion */}
         <div className="md:pl-[244px]">
           <div
             ref={listRef as React.RefObject<HTMLDivElement>}

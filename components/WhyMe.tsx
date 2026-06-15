@@ -26,12 +26,11 @@ export default function WhyMe() {
   const gridRef = useReveal("stagger");
 
   return (
-    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
+    <section className="py-20 md:py-24 px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
-        {/* Header row */}
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24 mb-16 md:mb-20"
+          className="reveal flex flex-col md:flex-row md:items-start gap-10 md:gap-24 mb-12"
         >
           <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
             <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
@@ -56,24 +55,20 @@ export default function WhyMe() {
           </div>
         </div>
 
-        {/* Grid */}
         <div className="md:pl-[244px]">
           <div
             ref={gridRef as React.RefObject<HTMLDivElement>}
-            className="stagger grid sm:grid-cols-2 gap-x-10 gap-y-12"
+            className="stagger grid sm:grid-cols-2 gap-x-10 gap-y-9"
           >
             {reasons.map((r) => (
               <div key={r.title}>
                 <h3
-                  className="font-cormorant font-light text-white mb-4 leading-[1.2]"
-                  style={{ fontSize: "clamp(1.25rem, 2vw, 1.625rem)" }}
+                  className="font-cormorant font-light text-white mb-3 leading-[1.2]"
+                  style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)" }}
                 >
                   {r.title}
                 </h3>
-                <p
-                  className="font-inter text-[#E8E8E8]/50 leading-[1.7]"
-                  style={{ fontSize: "0.9375rem" }}
-                >
+                <p className="font-inter text-[#E8E8E8]/50 leading-[1.7] text-[0.9rem]">
                   {r.body}
                 </p>
               </div>
