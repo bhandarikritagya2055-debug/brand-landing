@@ -11,41 +11,66 @@ const items = [
 
 export default function WhatYouGet() {
   const headRef = useReveal();
-  const listRef = useReveal();
+  const listRef = useReveal("stagger");
 
   return (
-    <section className="py-28 md:py-36 px-6">
+    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
+        {/* Header row */}
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className="reveal mb-16"
+          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24 mb-16 md:mb-20"
         >
-          <p className="mb-4 text-xs tracking-[0.25em] uppercase text-[#C9A961] font-inter font-medium">
-            The Free Strategy
-          </p>
-          <h2 className="font-cormorant font-light text-4xl sm:text-5xl md:text-6xl leading-[1.1] text-white">
-            What&apos;s inside your
-            <br />
-            free strategy
-          </h2>
+          <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
+            <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
+              The Free Strategy
+            </span>
+            <span
+              className="font-cormorant text-[2.5rem] font-light text-gold/20 leading-none"
+              aria-hidden
+            >
+              02
+            </span>
+          </div>
+          <div className="flex-1">
+            <h2
+              className="font-cormorant font-light text-white leading-[1.1] tracking-[-0.01em]"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+            >
+              What&apos;s inside your
+              <br />
+              free strategy
+            </h2>
+          </div>
         </div>
 
-        <ul
-          ref={listRef as React.RefObject<HTMLUListElement>}
-          className="reveal-group grid sm:grid-cols-2 gap-6"
-        >
-          {items.map((item, i) => (
-            <li
-              key={i}
-              className="flex items-start gap-5 border border-white/8 p-8 bg-white/[0.02]"
-            >
-              <span className="mt-1 font-cormorant text-2xl text-[#C9A961] font-light shrink-0">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="font-inter text-base text-white/75 leading-relaxed">{item}</p>
-            </li>
-          ))}
-        </ul>
+        {/* Items */}
+        <div className="md:pl-[244px]">
+          <ul
+            ref={listRef as React.RefObject<HTMLUListElement>}
+            className="stagger grid sm:grid-cols-2 gap-4"
+          >
+            {items.map((item, i) => (
+              <li
+                key={i}
+                className="border border-white/[0.07] p-8 flex gap-6 items-start hover:border-gold/30 transition-colors duration-500"
+              >
+                <span
+                  className="font-cormorant text-[1.75rem] font-light text-gold/35 shrink-0 leading-none mt-1"
+                  aria-hidden
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p
+                  className="font-inter text-[#E8E8E8]/65 leading-[1.7]"
+                  style={{ fontSize: "1rem" }}
+                >
+                  {item}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

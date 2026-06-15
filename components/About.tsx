@@ -6,23 +6,42 @@ export default function About() {
   const ref = useReveal();
 
   return (
-    <section
-      ref={ref as React.RefObject<HTMLElement>}
-      className="reveal py-28 md:py-36 px-6"
-    >
+    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
-        <div className="max-w-2xl">
-          <p className="mb-4 text-xs tracking-[0.25em] uppercase text-[#C9A961] font-inter font-medium">
-            About Me
-          </p>
-          <h2 className="font-cormorant font-light text-4xl sm:text-5xl md:text-6xl leading-[1.1] text-white mb-8">
-            Hi, I&apos;m Kritagya Bhandari.
-          </h2>
-          <p className="font-inter text-base sm:text-lg text-white/55 leading-relaxed">
-            I help businesses get more leads, close more sales, and turn online
-            attention into real growth. No guesswork, no fluff — just a clear
-            plan that works.
-          </p>
+        <div
+          ref={ref as React.RefObject<HTMLDivElement>}
+          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24"
+        >
+          {/* Section label + number */}
+          <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
+            <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
+              About
+            </span>
+            <span
+              className="font-cormorant text-[2.5rem] font-light text-gold/20 leading-none"
+              aria-hidden
+            >
+              01
+            </span>
+          </div>
+
+          {/* Content */}
+          <div className="flex-1">
+            <h2
+              className="font-cormorant font-light text-white mb-6 leading-[1.1] tracking-[-0.01em]"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+            >
+              Hi, I&apos;m Kritagya Bhandari.
+            </h2>
+            <p
+              className="font-inter text-[#E8E8E8]/60 leading-[1.7] max-w-[60ch]"
+              style={{ fontSize: "1.125rem" }}
+            >
+              I help businesses get more leads, close more sales, and turn
+              online attention into real growth. No guesswork, no fluff — just
+              a clear plan that works.
+            </p>
+          </div>
         </div>
       </div>
     </section>

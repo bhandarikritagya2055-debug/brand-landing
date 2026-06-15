@@ -1,17 +1,28 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0A0A0A]/80 backdrop-blur-md">
-      <div className="mx-auto max-w-container px-6 flex items-center justify-between h-16">
-        <span className="font-cormorant text-xl font-medium tracking-wide text-white">
-          Kritagya<span className="text-[#C9A961]">.</span>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent backdrop-blur-md ${
+        scrolled ? "nav-scrolled" : ""
+      }`}
+    >
+      <div className="mx-auto max-w-container px-6 flex items-center justify-between h-[64px]">
+        <span className="font-cormorant text-[1.1rem] font-light tracking-wide text-white/90">
+          Kritagya Bhandari
         </span>
-        <a
-          href="#hero"
-          className="text-xs tracking-widest uppercase text-white/40 hover:text-[#C9A961] transition-colors duration-300"
-        >
-          Get Free Strategy
+        <a href="#get-strategy" className="btn-gold text-[11px] py-3 px-5">
+          Get my free strategy
         </a>
       </div>
     </header>

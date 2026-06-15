@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import SectionDivider from "@/components/SectionDivider";
 import About from "@/components/About";
 import WhatYouGet from "@/components/WhatYouGet";
 import Services from "@/components/Services";
@@ -16,21 +15,13 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <SectionDivider />
         <About />
-        <SectionDivider />
         <WhatYouGet />
-        <SectionDivider />
         <Services />
-        <SectionDivider />
         <Testimonials />
-        <SectionDivider />
         <WhyMe />
-        <SectionDivider />
         <HowItWorks />
-        <SectionDivider />
         <FAQ />
-        <SectionDivider />
         <Closing />
       </main>
     </>

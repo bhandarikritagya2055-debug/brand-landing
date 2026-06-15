@@ -22,44 +22,69 @@ const steps = [
 
 export default function HowItWorks() {
   const headRef = useReveal();
-  const stepsRef = useReveal();
+  const stepsRef = useReveal("stagger");
 
   return (
-    <section className="py-28 md:py-36 px-6">
+    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
+        {/* Header row */}
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className="reveal mb-16"
+          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24 mb-16 md:mb-20"
         >
-          <p className="mb-4 text-xs tracking-[0.25em] uppercase text-[#C9A961] font-inter font-medium">
-            How It Works
-          </p>
-          <h2 className="font-cormorant font-light text-4xl sm:text-5xl md:text-6xl leading-[1.1] text-white">
-            Three steps to
-            <br />
-            your growth plan
-          </h2>
+          <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
+            <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
+              How It Works
+            </span>
+            <span
+              className="font-cormorant text-[2.5rem] font-light text-gold/20 leading-none"
+              aria-hidden
+            >
+              06
+            </span>
+          </div>
+          <div className="flex-1">
+            <h2
+              className="font-cormorant font-light text-white leading-[1.1] tracking-[-0.01em]"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+            >
+              Three steps to
+              <br />
+              your growth plan
+            </h2>
+          </div>
         </div>
 
-        <div
-          ref={stepsRef as React.RefObject<HTMLDivElement>}
-          className="reveal-group grid md:grid-cols-3 gap-8"
-        >
-          {steps.map((s) => (
-            <div key={s.num} className="relative pl-0">
-              <div className="mb-6">
-                <span className="font-cormorant text-6xl font-light text-[#C9A961] opacity-40">
+        {/* Steps */}
+        <div className="md:pl-[244px]">
+          <div
+            ref={stepsRef as React.RefObject<HTMLDivElement>}
+            className="stagger grid md:grid-cols-3 gap-10 md:gap-8"
+          >
+            {steps.map((s) => (
+              <div key={s.num}>
+                <span
+                  className="block font-cormorant font-light text-gold/25 leading-none mb-6"
+                  style={{ fontSize: "3.5rem" }}
+                  aria-hidden
+                >
                   {s.num}
                 </span>
+                <h3
+                  className="font-cormorant font-light text-white mb-3 leading-[1.2]"
+                  style={{ fontSize: "clamp(1.25rem, 2vw, 1.625rem)" }}
+                >
+                  {s.title}
+                </h3>
+                <p
+                  className="font-inter text-[#E8E8E8]/50 leading-[1.7]"
+                  style={{ fontSize: "0.9375rem" }}
+                >
+                  {s.body}
+                </p>
               </div>
-              <h3 className="font-cormorant text-2xl sm:text-3xl font-light text-white mb-3">
-                {s.title}
-              </h3>
-              <p className="font-inter text-sm text-white/50 leading-relaxed">
-                {s.body}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

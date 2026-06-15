@@ -27,43 +27,60 @@ const testimonials = [
 
 export default function Testimonials() {
   const headRef = useReveal();
-  const gridRef = useReveal();
+  const gridRef = useReveal("stagger");
 
   return (
-    <section className="py-28 md:py-36 px-6">
+    <section className="py-[8rem] md:py-[10rem] px-6 border-t border-white/[0.06]">
       <div className="mx-auto max-w-container">
+        {/* Header row */}
         <div
           ref={headRef as React.RefObject<HTMLDivElement>}
-          className="reveal mb-16"
+          className="reveal flex flex-col md:flex-row md:items-start gap-12 md:gap-24 mb-16 md:mb-20"
         >
-          <p className="mb-4 text-xs tracking-[0.25em] uppercase text-[#C9A961] font-inter font-medium">
-            Testimonials
-          </p>
-          <h2 className="font-cormorant font-light text-4xl sm:text-5xl md:text-6xl leading-[1.1] text-white">
-            What clients say
-          </h2>
+          <div className="md:w-[220px] shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
+            <span className="font-inter text-[0.75rem] uppercase tracking-[0.2em] text-gold">
+              Testimonials
+            </span>
+            <span
+              className="font-cormorant text-[2.5rem] font-light text-gold/20 leading-none"
+              aria-hidden
+            >
+              04
+            </span>
+          </div>
+          <div className="flex-1">
+            <h2
+              className="font-cormorant font-light text-white leading-[1.1] tracking-[-0.01em]"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+            >
+              What clients say
+            </h2>
+          </div>
         </div>
 
-        <div
-          ref={gridRef as React.RefObject<HTMLDivElement>}
-          className="reveal-group grid sm:grid-cols-2 gap-6"
-        >
-          {testimonials.map((t) => (
-            <figure
-              key={t.name}
-              className="border border-white/8 p-8 md:p-10 bg-white/[0.02] flex flex-col justify-between gap-8"
-            >
-              <blockquote className="font-inter text-base text-white/65 leading-relaxed">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="flex items-center gap-3">
-                <div className="h-px flex-1 bg-white/10" />
-                <span className="font-inter text-sm text-[#C9A961] tracking-wide">
+        {/* Grid */}
+        <div className="md:pl-[244px]">
+          <div
+            ref={gridRef as React.RefObject<HTMLDivElement>}
+            className="stagger grid sm:grid-cols-2 gap-5"
+          >
+            {testimonials.map((t) => (
+              <figure
+                key={t.name}
+                className="border-t border-gold/40 pt-8 pb-10 px-0 flex flex-col justify-between gap-8"
+              >
+                <blockquote
+                  className="font-inter text-[#E8E8E8]/60 leading-[1.7]"
+                  style={{ fontSize: "1rem" }}
+                >
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <figcaption className="font-inter text-[0.8rem] tracking-[0.12em] uppercase text-gold">
                   {t.name}
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
