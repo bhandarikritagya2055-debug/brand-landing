@@ -2,11 +2,9 @@
 
 import { motion } from "framer-motion";
 
-// whyme.png natural ratio: 768/1330 = 57.74%
-// Show 97% height. padding-top = 97% × 57.74% = 56.01%
-// Overlay recalculated: original_pct × 57.74% / 56.01%
-//   top  37% → 37 × 57.74/56.01 = 38.1% ≈ 38%
-//   bottom 2% → stays ~2%
+// whyme.png: cards start at ~42% of container, end at ~99%.
+// Diamond + line decorates top ~14% of each card interior.
+// Text uses justify-start + paddingTop 24% to land clearly below the diamond.
 const PADDING_TOP = "56.01%";
 
 const reasons = [
@@ -44,22 +42,27 @@ export default function WhyMeSection() {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* 2×2 grid over the card outlines in the image */}
+      {/* 2×2 grid. top:42% aligns with card outlines in image.
+          Each card uses paddingTop:24% to clear the ♦── decorative element. */}
       <div
         className="absolute grid grid-cols-2"
-        style={{ top: "38%", left: "5%", right: "4%", bottom: "2%", gap: "2%" }}
+        style={{ top: "42%", left: "5%", right: "4%", bottom: "1%", gap: "2%" }}
       >
         {reasons.map((r) => (
-          <div key={r.title} className="flex flex-col justify-center px-[6%] py-[4%]">
+          <div
+            key={r.title}
+            className="flex flex-col justify-start"
+            style={{ paddingTop: "24%", paddingLeft: "6%", paddingRight: "6%", paddingBottom: "5%" }}
+          >
             <h3
               className="font-cormorant font-light text-cream leading-snug mb-2"
-              style={{ fontSize: "clamp(0.9rem, 1.6vw, 1.35rem)" }}
+              style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.25rem)" }}
             >
               {r.title}
             </h3>
             <p
               className="font-inter text-cream/65 leading-relaxed"
-              style={{ fontSize: "clamp(0.7rem, 1.05vw, 0.875rem)" }}
+              style={{ fontSize: "clamp(0.65rem, 1vw, 0.85rem)" }}
             >
               {r.body}
             </p>

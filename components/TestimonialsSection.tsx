@@ -49,7 +49,7 @@ export default function TestimonialsSection() {
         style={{ top: "57%", left: "5.5%", right: "5.5%", bottom: "5%", gap: "2%" }}
       >
         {testimonials.map((t) => (
-          <div key={t.name} className="flex flex-col justify-between px-[6%] py-[4%]">
+          <div key={t.name} className="flex flex-col justify-between px-[6%]" style={{ paddingTop: "9%", paddingBottom: "6%" }}>
             <p
               className="font-inter text-[#3D0C18] leading-relaxed"
               style={{ fontSize: "clamp(0.75rem, 1.2vw, 1rem)" }}

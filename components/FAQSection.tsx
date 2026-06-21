@@ -21,20 +21,20 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   }, [open]);
 
   return (
-    <div className="border-b border-[#0A0A0A]/40">
+    <div className="border-b border-white/15">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-6 text-left focus:outline-none group"
         aria-expanded={open}
       >
         <span
-          className="font-playfair font-bold text-[#0A0A0A] group-hover:text-[#B0202F] transition-colors duration-300 pr-8 leading-snug"
+          className="font-playfair font-bold text-cream group-hover:text-gold transition-colors duration-300 pr-8 leading-snug"
           style={{ fontSize: "clamp(1rem, 1.8vw, 1.3rem)" }}
         >
           {q}
         </span>
         <span
-          className={`shrink-0 text-[#0A0A0A] text-2xl font-bold leading-none transition-transform duration-500 ${
+          className={`shrink-0 text-cream/70 text-2xl font-bold leading-none transition-transform duration-500 group-hover:text-gold ${
             open ? "rotate-45" : "rotate-0"
           }`}
           aria-hidden
@@ -48,7 +48,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         style={{ maxHeight: "0px" }}
       >
         <p
-          className="font-inter text-[#0A0A0A]/70 leading-[1.7] pb-6"
+          className="font-inter text-cream/55 leading-[1.7] pb-6"
           style={{ fontSize: "0.9375rem" }}
         >
           {a}
@@ -83,8 +83,7 @@ export default function FAQSection() {
           >
             Quick answers
           </h2>
-          {/* Bold black divider at top */}
-          <div className="border-t-2 border-[#0A0A0A]/50">
+          <div className="border-t border-white/15">
             {faqs.map((item) => (
               <FAQItem key={item.q} q={item.q} a={item.a} />
             ))}
