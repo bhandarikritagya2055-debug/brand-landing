@@ -1,28 +1,28 @@
 import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import WhatYouGet from "@/components/WhatYouGet";
-import Services from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
-import WhyMe from "@/components/WhyMe";
-import HowItWorks from "@/components/HowItWorks";
-import FAQ from "@/components/FAQ";
-import Closing from "@/components/Closing";
+import ScrollDots from "@/components/ScrollDots";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import WhyMeSection from "@/components/WhyMeSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import FAQSection from "@/components/FAQSection";
+import CTASection from "@/components/CTASection";
 
 export default function Home() {
   return (
     <>
       <Nav />
+      <ScrollDots />
       <main>
-        <Hero />
-        <About />
-        <WhatYouGet />
-        <Services />
-        <Testimonials />
-        <WhyMe />
-        <HowItWorks />
-        <FAQ />
-        <Closing />
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <TestimonialsSection />
+        <WhyMeSection />
+        <HowItWorksSection />
+        <FAQSection />
+        <CTASection />
       </main>
     </>
   );

@@ -17,11 +17,11 @@ export default function Nav() {
         scrolled ? "nav-scrolled" : ""
       }`}
     >
-      <div className="mx-auto max-w-container px-6 flex items-center justify-between h-[64px]">
+      <div className="mx-auto max-w-container px-6 flex items-center justify-between h-16">
         <span className="font-cormorant text-[1.1rem] font-light tracking-wide text-white/90">
           Kritagya Bhandari
         </span>
-        <a href="#get-strategy" className="btn-gold text-[11px] py-3 px-5">
+        <a href="#s-cta" className="btn-gold text-[11px] py-3 px-5">
           Get my free strategy
         </a>
       </div>
