@@ -15,7 +15,10 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent backdrop-blur-md ${
+      // Mobile: in normal flow so [announcement bar][nav] stack as one clean
+      // header unit, with the hero flowing naturally below — no overlap, no
+      // magic-number offset. Desktop: fixed overlay exactly as before.
+      className={`relative z-50 transition-all duration-500 border-b border-transparent backdrop-blur-md md:fixed md:top-0 md:left-0 md:right-0 ${
         scrolled || menuOpen ? "nav-scrolled" : ""
       }`}
     >
