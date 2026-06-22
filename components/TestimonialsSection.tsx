@@ -2,13 +2,6 @@
 
 import { motion } from "framer-motion";
 
-// testimonials.png natural ratio: 784/1456 = 53.85%
-// Show 92% height (trim small bottom gap). padding-top = 92% × 53.85% = 49.54%
-// Overlay recalculated: original_pct × 53.85% / 49.54%
-//   top  52% → 52 × 53.85/49.54 = 56.5% ≈ 57%
-//   bottom 5% → stays 5%
-const PADDING_TOP = "49.54%";
-
 const testimonials = [
   {
     quote:
@@ -31,43 +24,43 @@ export default function TestimonialsSection() {
   return (
     <motion.section
       id="s-testimonials"
-      className="relative scroll-mt-16"
-      style={{
-        backgroundImage: "url(/testimonials.png)",
-        backgroundSize: "100% auto",
-        backgroundPosition: "top center",
-        paddingTop: PADDING_TOP,
-      }}
+      className="scroll-mt-16 px-6 py-20 md:py-28"
+      style={{ background: "#1A0608" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Text inside the 3 cream cards — dark maroon to read on cream background */}
-      <div
-        className="absolute grid grid-cols-3"
-        style={{ top: "57%", left: "5.5%", right: "5.5%", bottom: "5%", gap: "2%" }}
-      >
-        {testimonials.map((t) => (
-          <div key={t.name} className="flex flex-col justify-between px-[6%]" style={{ paddingTop: "9%", paddingBottom: "6%" }}>
-            <p
-              className="font-inter text-[#3D0C18] leading-relaxed"
-              style={{ fontSize: "clamp(0.75rem, 1.2vw, 1rem)" }}
+      <div className="mx-auto max-w-container">
+        <p className="font-inter uppercase tracking-[0.22em] text-[0.75rem] text-[#B0202F] mb-4">
+          Results
+        </p>
+        <h2
+          className="font-playfair font-bold text-cream leading-[1.02] mb-12"
+          style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)" }}
+        >
+          What clients say
+        </h2>
+
+        {/* 1-col mobile · 3-col desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {testimonials.map((t) => (
+            <figure
+              key={t.name}
+              className="flex flex-col justify-between gap-6 rounded-lg bg-cream border-t-[3px] border-[#B0202F] p-6 md:p-7"
             >
-              &ldquo;{t.quote}&rdquo;
-            </p>
-            <p
-              className="font-inter font-semibold text-[#7A1020] mt-3"
-              style={{
-                fontSize: "clamp(0.6rem, 0.9vw, 0.78rem)",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-              }}
-            >
-              — {t.name}
-            </p>
-          </div>
-        ))}
+              <blockquote
+                className="font-inter text-[#3D0C18] leading-relaxed"
+                style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.0625rem)" }}
+              >
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption className="font-inter font-semibold text-[#7A1020] uppercase tracking-[0.1em] text-[0.75rem]">
+                — {t.name}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </motion.section>
   );

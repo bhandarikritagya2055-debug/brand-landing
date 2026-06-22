@@ -2,11 +2,6 @@
 
 import { motion } from "framer-motion";
 
-// whyme.png: cards start at ~42% of container, end at ~99%.
-// Diamond + line decorates top ~14% of each card interior.
-// Text uses justify-start + paddingTop 24% to land clearly below the diamond.
-const PADDING_TOP = "56.01%";
-
 const reasons = [
   {
     title: "You'll always have me in your corner.",
@@ -30,44 +25,53 @@ export default function WhyMeSection() {
   return (
     <motion.section
       id="s-whyme"
-      className="relative scroll-mt-16"
-      style={{
-        backgroundImage: "url(/whyme.png)",
-        backgroundSize: "100% auto",
-        backgroundPosition: "top center",
-        paddingTop: PADDING_TOP,
-      }}
+      className="scroll-mt-16 px-6 py-20 md:py-28"
+      style={{ background: "#0A0A0A" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* 2×2 grid. top:42% aligns with card outlines in image.
-          Each card uses paddingTop:24% to clear the ♦── decorative element. */}
-      <div
-        className="absolute grid grid-cols-2"
-        style={{ top: "42%", left: "5%", right: "4%", bottom: "1%", gap: "2%" }}
-      >
-        {reasons.map((r) => (
-          <div
-            key={r.title}
-            className="flex flex-col justify-start"
-            style={{ paddingTop: "24%", paddingLeft: "6%", paddingRight: "6%", paddingBottom: "5%" }}
-          >
-            <h3
-              className="font-cormorant font-light text-cream leading-snug mb-2"
-              style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.25rem)" }}
+      <div className="mx-auto max-w-container">
+        <p className="font-inter uppercase tracking-[0.22em] text-[0.75rem] text-gold mb-4">
+          Why Me
+        </p>
+        <h2
+          className="font-playfair font-normal text-cream leading-[1.05] mb-12"
+          style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+        >
+          Why work with me
+        </h2>
+
+        {/* 1-col mobile · 2-col desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {reasons.map((r) => (
+            <div
+              key={r.title}
+              className="rounded-lg border border-cream/15 p-6 md:p-8 flex flex-col"
             >
-              {r.title}
-            </h3>
-            <p
-              className="font-inter text-cream/65 leading-relaxed"
-              style={{ fontSize: "clamp(0.65rem, 1vw, 0.85rem)" }}
-            >
-              {r.body}
-            </p>
-          </div>
-        ))}
+              {/* Diamond + line at top */}
+              <div className="flex items-center gap-2 mb-5">
+                <span className="block w-2 h-2 rotate-45 bg-[#B0202F]" aria-hidden />
+                <span className="block w-6 h-px bg-[#B0202F]" aria-hidden />
+              </div>
+              {/* Title directly below */}
+              <h3
+                className="font-cormorant font-medium text-cream leading-snug mb-2"
+                style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)" }}
+              >
+                {r.title}
+              </h3>
+              {/* Description directly below */}
+              <p
+                className="font-inter text-cream/60 leading-relaxed"
+                style={{ fontSize: "clamp(0.9rem, 1.4vw, 1rem)" }}
+              >
+                {r.body}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </motion.section>
   );

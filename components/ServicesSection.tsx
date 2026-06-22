@@ -3,10 +3,6 @@
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
 
-// services.png natural ratio: 830/1330 = 62.41%
-// Show 96% height. padding-top = 96% × 62.41% = 59.91%
-const PADDING_TOP = "59.91%";
-
 const services = [
   { name: "Lead Generation",     desc: "Turn clicks into customers" },
   { name: "Landing Pages",       desc: "Built to convert" },
@@ -19,43 +15,52 @@ export default function ServicesSection() {
   return (
     <motion.section
       id="s-services"
-      className="relative scroll-mt-16"
-      style={{
-        backgroundImage: "url(/services.png)",
-        backgroundSize: "100% auto",
-        backgroundPosition: "top center",
-        paddingTop: PADDING_TOP,
-      }}
+      className="scroll-mt-16 px-6 py-20 md:py-28"
+      style={{ background: "#1A0608" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* 5 tilt cards over the rounded-rectangle outlines in the image */}
-      <div
-        className="absolute grid grid-cols-5"
-        style={{ top: "48%", left: "4%", right: "4%", bottom: "5%", gap: "1.8%" }}
-      >
-        {services.map((s) => (
-          <TiltCard key={s.name} className="w-full h-full" intensity={8}>
-            <div className="w-full h-full rounded-xl flex flex-col justify-start transition-all duration-300 hover:bg-gold/5 hover:ring-1 hover:ring-gold/30"
-              style={{ padding: "12% 10% 8%" }}
+      <div className="mx-auto max-w-container">
+        <p className="font-inter uppercase tracking-[0.22em] text-[0.75rem] text-[#B0202F] mb-4">
+          Services
+        </p>
+        <h2
+          className="font-playfair font-normal text-cream leading-[1.05] mb-12"
+          style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+        >
+          What I help with
+        </h2>
+
+        {/* 2-col mobile (5th centered) · 5-col desktop · compact cards */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          {services.map((s, i) => (
+            <TiltCard
+              key={s.name}
+              intensity={8}
+              className={`h-full ${
+                i === 4 ? "col-span-2 w-1/2 mx-auto md:col-span-1 md:w-full md:mx-0" : ""
+              }`}
             >
-              <p
-                className="font-inter font-semibold text-cream leading-snug"
-                style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.9rem)" }}
-              >
-                {s.name}
-              </p>
-              <p
-                className="font-inter text-cream/50 mt-1.5 leading-snug"
-                style={{ fontSize: "clamp(0.55rem, 0.85vw, 0.72rem)" }}
-              >
-                {s.desc}
-              </p>
-            </div>
-          </TiltCard>
-        ))}
+              <div className="group h-full rounded-xl border border-cream/20 bg-cream/[0.02] p-5 flex flex-col gap-1.5 transition-all duration-300 hover:border-gold/50 hover:bg-gold/[0.04] md:min-h-[150px]">
+                <span
+                  className="font-cormorant text-gold/40 leading-none mb-1"
+                  style={{ fontSize: "1.5rem" }}
+                  aria-hidden
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-inter font-semibold text-cream leading-snug text-[0.95rem]">
+                  {s.name}
+                </h3>
+                <p className="font-inter text-cream/55 leading-snug text-[0.8125rem]">
+                  {s.desc}
+                </p>
+              </div>
+            </TiltCard>
+          ))}
+        </div>
       </div>
     </motion.section>
   );
