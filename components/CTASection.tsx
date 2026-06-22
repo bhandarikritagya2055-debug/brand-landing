@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { SocialIconsRow } from "./SocialIcons";
 
 export default function CTASection() {
   const router = useRouter();
@@ -128,6 +129,11 @@ export default function CTASection() {
               </button>
             </div>
           </form>
+        </div>
+
+        {/* Social icons — bottom of page */}
+        <div className="mt-16 flex justify-center">
+          <SocialIconsRow />
         </div>
 
         {/* Footer */}
