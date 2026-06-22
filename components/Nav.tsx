@@ -22,8 +22,8 @@ export default function Nav() {
         scrolled || menuOpen ? "nav-scrolled" : ""
       }`}
     >
-      {/* Announcement bar — sits above the nav row, both stacked inside the fixed header */}
-      <div className="w-full bg-[#0A0A0A]">
+      {/* Announcement bar — desktop only; hidden on mobile */}
+      <div className="hidden md:block w-full bg-[#0A0A0A]">
         <div className="relative mx-auto max-w-container px-4 flex flex-col items-center justify-center gap-1 py-2 md:h-9 md:flex-row md:gap-0 md:py-0">
           <p className="font-inter text-cream text-center leading-tight tracking-[0.05em] text-[0.7rem] md:text-[0.8rem]">
             This month&apos;s slots are almost gone — Claim yours today
