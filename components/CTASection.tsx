@@ -116,9 +116,17 @@ export default function CTASection() {
               <p className="font-inter text-[0.8125rem] text-red-400/80">{error}</p>
             )}
 
-            <button type="submit" disabled={loading} className="btn-burgundy mt-2">
-              {loading ? "Sending…" : "Get my free strategy"}
-            </button>
+            <div className="mt-2">
+              <p
+                className="font-inter font-medium text-cream text-center mb-4"
+                style={{ fontSize: "1rem" }}
+              >
+                One call could change everything for your business.
+              </p>
+              <button type="submit" disabled={loading} className="btn-burgundy">
+                {loading ? "Sending…" : "Get my free strategy"}
+              </button>
+            </div>
           </form>
         </div>
 

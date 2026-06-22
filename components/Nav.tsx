@@ -54,6 +54,22 @@ export default function Nav() {
         scrolled || menuOpen ? "nav-scrolled" : ""
       }`}
     >
+      {/* Announcement bar — sits above the nav row, both stacked inside the fixed header */}
+      <div className="w-full bg-[#B0202F]">
+        <div className="relative mx-auto max-w-container px-4 flex flex-col items-center justify-center gap-1 py-2 md:h-9 md:flex-row md:gap-0 md:py-0">
+          <p className="font-inter text-cream text-center leading-tight tracking-[0.05em] text-[0.7rem] md:text-[0.8rem]">
+            This month&apos;s slots are almost gone — Claim yours today
+          </p>
+          <a
+            href="#s-cta"
+            onClick={() => setMenuOpen(false)}
+            className="font-inter text-gold whitespace-nowrap leading-tight tracking-[0.05em] text-[0.7rem] md:text-[0.8rem] hover:opacity-80 transition-opacity duration-200 md:absolute md:right-4 md:top-1/2 md:-translate-y-1/2"
+          >
+            Book now &rarr;
+          </a>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-container px-4 sm:px-6 flex items-center h-16 gap-3 sm:gap-6">
         {/* Name */}
         <span className="font-cormorant text-base sm:text-[1.1rem] font-light tracking-wide text-white/90 shrink-0 whitespace-nowrap">
