@@ -24,7 +24,7 @@ export default function TestimonialsSection() {
   return (
     <motion.section
       id="s-testimonials"
-      className="scroll-mt-16 px-6 py-20 md:py-28"
+      className="scroll-mt-16 px-6 py-12 md:py-28"
       style={{ background: "#1A0608" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export default function TestimonialsSection() {
         </p>
         <h2
           className="font-playfair font-bold text-cream leading-[1.02] mb-12"
-          style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)" }}
+          style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
         >
           What clients say
         </h2>

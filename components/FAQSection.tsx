@@ -62,7 +62,7 @@ export default function FAQSection() {
   return (
     <motion.section
       id="s-faq"
-      className="scroll-mt-16 py-24 md:py-32 px-6"
+      className="scroll-mt-16 py-14 md:py-32 px-6"
       style={{ background: "#2E0A12" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export default function FAQSection() {
           </p>
           <h2
             className="font-playfair font-normal text-cream mb-12 leading-[1.1]"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
+            style={{ fontSize: "clamp(1.75rem, 4vw, 3.25rem)" }}
           >
             Quick answers
           </h2>

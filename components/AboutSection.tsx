@@ -6,7 +6,7 @@ export default function AboutSection() {
   return (
     <motion.section
       id="s-about"
-      className="scroll-mt-16 px-6 py-20 md:py-28"
+      className="scroll-mt-16 px-6 py-12 md:py-28"
       style={{ background: "#EFE3D6" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -19,7 +19,7 @@ export default function AboutSection() {
         </p>
         <h2
           className="font-playfair font-bold text-[#2E0A12] leading-[0.95] mb-5"
-          style={{ fontSize: "clamp(2.75rem, 9vw, 6rem)" }}
+          style={{ fontSize: "clamp(2rem, 9vw, 6rem)" }}
         >
           ABOUT
         </h2>

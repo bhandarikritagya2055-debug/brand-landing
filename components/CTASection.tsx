@@ -44,7 +44,7 @@ export default function CTASection() {
   return (
     <motion.section
       id="s-cta"
-      className="scroll-mt-16 relative py-24 md:py-32 px-6"
+      className="scroll-mt-16 relative py-14 md:py-32 px-6"
       style={{ background: "#0A0A0A" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export default function CTASection() {
 
           <h2
             className="font-playfair font-normal text-cream leading-[1.08] mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
+            style={{ fontSize: "clamp(1.75rem, 4vw, 3.25rem)" }}
           >
             Ready to grow your business?
           </h2>

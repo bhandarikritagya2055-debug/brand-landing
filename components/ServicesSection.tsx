@@ -15,7 +15,7 @@ export default function ServicesSection() {
   return (
     <motion.section
       id="s-services"
-      className="scroll-mt-16 px-6 py-20 md:py-28"
+      className="scroll-mt-16 px-6 py-12 md:py-28"
       style={{ background: "#1A0608" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export default function ServicesSection() {
         </p>
         <h2
           className="font-playfair font-normal text-cream leading-[1.05] mb-12"
-          style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+          style={{ fontSize: "clamp(1.75rem, 4.5vw, 3.5rem)" }}
         >
           What I help with
         </h2>
