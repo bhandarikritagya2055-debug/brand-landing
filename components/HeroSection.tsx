@@ -16,9 +16,9 @@ export default function HeroSection() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* ───────── MOBILE hero — native text, properly sized (no tiny baked image) ───────── */}
+      {/* ───────── MOBILE hero — photo of Kritagya + native text, enlarged ───────── */}
       <div
-        className="md:hidden relative overflow-hidden text-center px-6 pt-12 pb-14"
+        className="md:hidden relative overflow-hidden text-center px-6 pt-14 pb-16"
         style={{ background: "#1A0608" }}
       >
         <div
@@ -26,31 +26,45 @@ export default function HeroSection() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 95% 55% at 50% 22%, rgba(201,169,97,0.13) 0%, transparent 70%)",
+              "radial-gradient(ellipse 95% 55% at 50% 20%, rgba(201,169,97,0.13) 0%, transparent 70%)",
           }}
         />
         <div className="relative flex flex-col items-center">
-          <p className="font-inter uppercase tracking-[0.28em] text-gold text-[0.7rem] mb-6">
+          {/* Photo of Kritagya — cropped from hero.png (subject sits on the left,
+              so `left center` + cover shows just him with no baked text). */}
+          <div
+            role="img"
+            aria-label="Kritagya Bhandari"
+            className="w-52 aspect-[3/4] rounded-xl mb-8 border border-gold/20"
+            style={{
+              backgroundImage: "url(/hero.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "left center",
+              backgroundColor: "#1A0608",
+            }}
+          />
+
+          <p className="font-inter uppercase tracking-[0.28em] text-gold text-[0.75rem] mb-5">
             AI Marketer
           </p>
           <h1
-            className="font-cormorant font-light text-cream leading-[1.04] mb-6"
-            style={{ fontSize: "clamp(2.75rem, 12vw, 4rem)" }}
+            className="font-cormorant font-light text-cream leading-[1.03] mb-6"
+            style={{ fontSize: "clamp(3rem, 13vw, 4.5rem)" }}
           >
             Kritagya
             <br />
             Bhandari
           </h1>
-          <p className="font-inter text-cream/60 leading-relaxed text-[0.95rem] max-w-[34ch] mb-3">
+          <p className="font-inter text-cream/60 leading-relaxed text-[1rem] max-w-[34ch] mb-4">
             More leads, more sales — growth powered by AI and automation.
           </p>
-          <p className="font-inter text-gold/80 uppercase tracking-[0.14em] text-[0.7rem] mb-9">
+          <p className="font-inter text-gold/80 uppercase tracking-[0.14em] text-[0.75rem] mb-10">
             Attract · Convert · Scale
           </p>
           <a href="#s-cta" className="btn-gold">
             Get my free strategy
           </a>
-          <p className="mt-6 font-inter text-cream/55 text-[0.75rem]">
+          <p className="mt-7 font-inter text-cream/55 text-[0.8rem]">
             Spots are filling. This month is almost full.
           </p>
         </div>
