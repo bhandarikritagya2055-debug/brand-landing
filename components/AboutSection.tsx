@@ -3,24 +3,29 @@
 import { motion } from "framer-motion";
 
 export default function AboutSection() {
+  // The cream background lives on this STATIC section so it is always painted.
+  // Previously the whole section was a motion element starting at opacity:0 —
+  // when the scroll-reveal hadn't fired (unreliable on mobile with the old
+  // negative viewport margin) the section was transparent and the dark <body>
+  // showed through, making the light About look dark on mobile only. Only the
+  // inner content now fades in, with a reliable amount-based trigger.
   return (
-    <motion.section
+    <section
       id="s-about"
       className="scroll-mt-16 px-6 py-12 md:py-28"
       style={{ background: "#EFE3D6" }}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="mx-auto max-w-container">
+      <motion.div
+        className="mx-auto max-w-container"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
         <p className="font-inter uppercase tracking-[0.22em] text-[0.75rem] text-[#B0202F] mb-4">
           About
         </p>
-        <h2
-          className="font-playfair font-bold text-[#2E0A12] leading-[0.95] mb-5"
-          style={{ fontSize: "clamp(2rem, 9vw, 6rem)" }}
-        >
+        <h2 className="font-playfair font-bold text-[#2E0A12] leading-[0.95] mb-5 text-4xl sm:text-6xl md:text-7xl lg:text-[6rem]">
           ABOUT
         </h2>
         <p
@@ -39,7 +44,7 @@ export default function AboutSection() {
           cheaper than old-school marketing. No guesswork, no fluff, just a clear
           plan that works.
         </p>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 }

@@ -5,17 +5,17 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "I was just boosting posts before and getting nothing. Kritagya set up a proper system and now I actually get inquiries every week.",
+      "I used to just boost random posts, no results. Kritagya fixed that — inquiries come in every week now.",
     name: "Ayush Baral",
   },
   {
     quote:
-      "Honestly I didn't expect much but the landing page he made got me 12 leads in the first 10 days. Worth it.",
+      "Wasn't sure it'd work. But results came fast — leads started coming in almost immediately.",
     name: "Arun Ramtel",
   },
   {
     quote:
-      "He doesn't just talk big. He showed me exactly where I was wasting money on ads and fixed it.",
+      "No big promises. Just showed me where I was losing money and fixed it.",
     name: "Prabhakar Kafle",
   },
 ];
