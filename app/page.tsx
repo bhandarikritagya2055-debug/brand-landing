@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import ScrollDots from "@/components/ScrollDots";
+import FlodeskPopup from "@/components/FlodeskPopup";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -12,6 +13,7 @@ import CTASection from "@/components/CTASection";
 export default function Home() {
   return (
     <>
+      <FlodeskPopup />
       <Nav />
       <ScrollDots />
       <main>
