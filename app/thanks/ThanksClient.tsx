@@ -7,7 +7,9 @@ interface Props {
 }
 
 const PHONE = "9761673867";
-const EASE = [0.16, 1, 0.3, 1] as const;
+// Explicit mutable tuple — Framer Motion's `ease` type rejects a readonly
+// (`as const`) tuple under strict type-checking, which would fail `next build`.
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 type Step = {
   n: string;
