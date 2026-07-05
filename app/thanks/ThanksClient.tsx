@@ -20,24 +20,24 @@ const steps: Step[] = [
   {
     n: "1",
     emoji: "📧",
-    title: "Check Your Inbox",
-    text: "I've sent your free strategy straight to your email. It should land within a minute or two.",
+    title: "Your Strategy Awaits",
+    text: "Sent, and on its way. Check your inbox in the next few minutes.",
     side: "right",
     badge: "gold",
   },
   {
     n: "2",
     emoji: "📥",
-    title: "Landed in Promotions?",
-    text: "Gmail sometimes files it there by mistake. Drag it into Primary once, and you'll always see what I send you.",
+    title: "A Small Detour",
+    text: "Occasionally it settles in Promotions. One drag into Primary, and it'll always find you first.",
     side: "left",
     badge: "burgundy",
   },
   {
     n: "3",
     emoji: "📅",
-    title: "Book Your Call",
-    text: "Open the email and click the link inside — it takes you straight to my calendar. Pick any time that works for you.",
+    title: "Reserve Your Time",
+    text: "Inside, a single link — your gateway to the call. Choose the moment that suits you.",
     side: "right",
     badge: "gold",
   },
@@ -208,17 +208,15 @@ export default function ThanksClient() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: EASE }}
         >
-          <p
-            className="font-inter text-cream/80 mb-6"
-            style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)" }}
-          >
-            Rather talk now than wait for the email?
+          <p className="font-inter uppercase tracking-[0.3em] text-gold text-[0.75rem] mb-5">
+            Contact
           </p>
           <a
             href={`tel:${PHONE}`}
-            className="inline-flex items-center gap-2 rounded-full bg-gold text-[#0A0A0A] font-inter font-semibold px-8 py-4 text-[0.95rem] tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(201,169,97,0.5)]"
+            className="font-playfair font-bold text-cream hover:text-gold transition-colors duration-300 inline-block leading-none"
+            style={{ fontSize: "clamp(2.5rem, 7vw, 4.5rem)" }}
           >
-            📞 Call {PHONE}
+            {PHONE}
           </a>
         </motion.div>
       </section>
