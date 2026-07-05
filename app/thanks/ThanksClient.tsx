@@ -46,7 +46,7 @@ const steps: Step[] = [
 function StitchedDetail({ align }: { align: "start" | "end" }) {
   return (
     <div
-      className={`mb-4 flex flex-col gap-1.5 items-center ${
+      className={`mb-5 flex flex-col gap-2 items-center ${
         align === "start" ? "md:items-start" : "md:items-end"
       }`}
       aria-hidden
@@ -86,38 +86,38 @@ function StepCard({ step }: { step: Step }) {
 
         {/* Pill — badge fused to the outer end */}
         <div
-          className={`flex items-stretch rounded-[2rem] overflow-hidden border border-[#C9A961]/20 bg-[#1a1a1a] ${
+          className={`flex items-stretch rounded-[2.25rem] overflow-hidden border border-[#C9A961]/15 bg-[#1a1a1a] ${
             isRight ? "" : "flex-row-reverse"
           }`}
-          style={{ boxShadow: "0 22px 55px rgba(0,0,0,0.55)" }}
+          style={{ boxShadow: "0 26px 60px rgba(0,0,0,0.5)" }}
         >
           {/* Body */}
           <div
-            className={`flex-1 flex items-center gap-4 px-6 py-6 md:px-8 ${
+            className={`flex-1 flex items-center gap-5 px-7 py-7 md:px-10 md:py-9 ${
               isRight ? "flex-row text-left" : "flex-row-reverse text-right"
             }`}
           >
-            <span className="text-3xl md:text-4xl shrink-0" aria-hidden>
+            <span className="text-3xl md:text-[2.5rem] shrink-0" aria-hidden>
               {step.emoji}
             </span>
             <div>
-              <h3 className="font-inter font-semibold text-cream text-[1.05rem] md:text-[1.2rem] leading-snug mb-1">
+              <h3 className="font-inter font-semibold text-cream text-[1.15rem] md:text-[1.35rem] leading-snug mb-1.5">
                 {step.title}
               </h3>
-              <p className="font-inter text-cream/55 text-[0.875rem] md:text-[0.95rem] leading-relaxed">
+              <p className="font-inter text-cream/60 text-[0.9rem] md:text-[1rem] leading-relaxed">
                 {step.text}
               </p>
             </div>
           </div>
 
-          {/* Number badge */}
+          {/* Number badge — the numeral is the focal element */}
           <div
-            className="shrink-0 flex items-center justify-center w-20 md:w-28"
+            className="shrink-0 flex items-center justify-center w-24 md:w-32"
             style={{ background: badge.bg }}
           >
             <span
-              className="font-playfair leading-none"
-              style={{ color: badge.color, fontSize: "clamp(2.5rem, 6vw, 3.5rem)" }}
+              className="font-playfair font-medium leading-none"
+              style={{ color: badge.color, fontSize: "clamp(3rem, 7vw, 4.5rem)" }}
             >
               {step.n}
             </span>
@@ -187,12 +187,12 @@ export default function ThanksClient() {
       </motion.div>
 
       {/* ───────── NEXT STEPS (zigzag) ───────── */}
-      <section className="px-6 pt-6 pb-24 md:pb-32">
+      <section className="px-6 pt-8 pb-28 md:pb-36">
         <div className="mx-auto max-w-4xl">
-          <p className="text-center font-inter uppercase tracking-[0.28em] text-gold text-[0.75rem] mb-16">
+          <p className="text-center font-inter uppercase tracking-[0.3em] text-gold text-[0.78rem] mb-20">
             Next Steps
           </p>
-          <div className="flex flex-col gap-16 md:gap-20">
+          <div className="flex flex-col gap-20 md:gap-28">
             {steps.map((s) => (
               <StepCard key={s.n} step={s} />
             ))}
