@@ -2,10 +2,6 @@
 
 import { motion } from "framer-motion";
 
-interface Props {
-  videoUrl: string;
-}
-
 const PHONE = "9761673867";
 // Explicit mutable tuple — Framer Motion's `ease` type rejects a readonly
 // (`as const`) tuple under strict type-checking, which would fail `next build`.
@@ -24,24 +20,24 @@ const steps: Step[] = [
   {
     n: "1",
     emoji: "📧",
-    title: "Check your email",
-    text: "My email is already in your inbox. Open your Gmail now.",
+    title: "Check Your Inbox",
+    text: "I've sent your free strategy straight to your email. It should land within a minute or two.",
     side: "right",
     badge: "gold",
   },
   {
     n: "2",
     emoji: "📥",
-    title: "Drag Promotions → Primary",
-    text: "If the email landed in your Promotions tab, drag it to Primary — so you never miss my emails.",
+    title: "Landed in Promotions?",
+    text: "Gmail sometimes files it there by mistake. Drag it into Primary once, and you'll always see what I send you.",
     side: "left",
     badge: "burgundy",
   },
   {
     n: "3",
     emoji: "📅",
-    title: "Book your free call",
-    text: "Inside the email is my Calendly link. Click it and pick a time for your free strategy call.",
+    title: "Book Your Call",
+    text: "Open the email and click the link inside — it takes you straight to my calendar. Pick any time that works for you.",
     side: "right",
     badge: "gold",
   },
@@ -132,18 +128,18 @@ function StepCard({ step }: { step: Step }) {
   );
 }
 
-export default function ThanksClient({ videoUrl }: Props) {
+export default function ThanksClient() {
   return (
     <main className="min-h-screen bg-[#0A0A0A] text-cream font-inter overflow-x-hidden">
       {/* ───────── HERO ───────── */}
-      <section className="relative px-6 pt-24 pb-14 md:pt-32 md:pb-16 text-center">
+      <section className="relative px-6 pt-28 pb-14 md:pt-40 md:pb-16 text-center">
         {/* Soft radial gold glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 70% 55% at 50% 28%, rgba(201,169,97,0.11) 0%, transparent 66%)",
+              "radial-gradient(ellipse 68% 60% at 50% 34%, rgba(201,169,97,0.13) 0%, transparent 66%)",
           }}
         />
         <motion.div
@@ -153,58 +149,45 @@ export default function ThanksClient({ videoUrl }: Props) {
           transition={{ duration: 0.9, ease: EASE }}
         >
           <h1
-            className="font-playfair font-normal leading-[1.05] text-cream"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
+            className="font-playfair font-normal leading-[1.02] text-cream"
+            style={{ fontSize: "clamp(3rem, 8vw, 5.5rem)" }}
           >
-            Thank You! 🎉
+            You&apos;re In!
           </h1>
           <p
-            className="font-playfair font-normal leading-[1.12] text-cream mt-3"
-            style={{ fontSize: "clamp(1.6rem, 4.2vw, 3rem)" }}
+            className="font-playfair italic text-gold leading-[1.1] mt-2"
+            style={{ fontSize: "clamp(1.75rem, 5vw, 3.5rem)" }}
           >
-            You&apos;re in — <span className="italic text-gold">Get My Free Strategy</span>
+            Get My Free Strategy
           </p>
           <p
-            className="font-inter text-cream/55 mt-6"
+            className="font-inter text-cream/55 mt-7"
             style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
           >
-            Just 3 quick steps left 👇
+            Here&apos;s exactly what happens next 👇
           </p>
         </motion.div>
       </section>
 
-      {/* ───────── VIDEO ───────── */}
-      <motion.section
-        className="px-6 mb-24 md:mb-32"
-        initial={{ opacity: 0, scale: 0.96 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+      {/* ───────── DECORATIVE DIVIDER (hero → steps) ───────── */}
+      <motion.div
+        className="flex items-center justify-center gap-3 px-6 py-8 md:py-12"
+        aria-hidden
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.9, ease: EASE }}
       >
-        <div className="mx-auto max-w-3xl">
-          <div
-            className="rounded-2xl overflow-hidden border border-[#C9A961]/40"
-            style={{
-              boxShadow:
-                "0 0 55px rgba(201,169,97,0.15), 0 24px 60px rgba(0,0,0,0.55)",
-            }}
-          >
-            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                src={videoUrl}
-                title="Welcome video"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-                style={{ border: 0 }}
-              />
-            </div>
-          </div>
-        </div>
-      </motion.section>
+        <span className="h-px w-16 md:w-28 bg-gradient-to-r from-transparent to-[#C9A961]/45" />
+        <span
+          className="h-2.5 w-2.5 rotate-45 bg-[#C9A961]"
+          style={{ boxShadow: "0 0 14px rgba(201,169,97,0.55)" }}
+        />
+        <span className="h-px w-16 md:w-28 bg-gradient-to-l from-transparent to-[#C9A961]/45" />
+      </motion.div>
 
       {/* ───────── NEXT STEPS (zigzag) ───────── */}
-      <section className="px-6 pb-24 md:pb-32">
+      <section className="px-6 pt-6 pb-24 md:pb-32">
         <div className="mx-auto max-w-4xl">
           <p className="text-center font-inter uppercase tracking-[0.28em] text-gold text-[0.75rem] mb-16">
             Next Steps
@@ -229,7 +212,7 @@ export default function ThanksClient({ videoUrl }: Props) {
             className="font-inter text-cream/80 mb-6"
             style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)" }}
           >
-            Want to talk right away?
+            Rather talk now than wait for the email?
           </p>
           <a
             href={`tel:${PHONE}`}
