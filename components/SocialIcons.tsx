@@ -1,5 +1,5 @@
 export const INSTAGRAM_URL = "https://www.instagram.com/bhandari_kritagya";
-export const WHATSAPP_URL  = "https://web.whatsapp.com";
+export const WHATSAPP_URL  = "https://wa.me/9779761673867";
 export const FACEBOOK_URL  = "https://www.facebook.com/share/1GWgnrDbLs/";
 
 function InstagramIcon() {
