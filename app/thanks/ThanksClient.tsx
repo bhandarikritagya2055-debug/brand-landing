@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 const PHONE = "9761673867";
@@ -129,6 +130,15 @@ function StepCard({ step }: { step: Step }) {
 }
 
 export default function ThanksClient() {
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      typeof (window as any).fbq === "function"
+    ) {
+      (window as any).fbq("track", "Lead");
+    }
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#0A0A0A] text-cream font-inter overflow-x-hidden">
       {/* ───────── HERO ───────── */}
